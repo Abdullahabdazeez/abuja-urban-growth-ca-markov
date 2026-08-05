@@ -1,0 +1,9 @@
+transition_code,transition,pixel_count,approx_area_sqkm
+11,Built-up → Built-up,1298938,1169.0442
+21,Vegetation → Built-up,12230,11.007
+22,Vegetation → Vegetation,2410400,2169.36
+31,Cropland → Built-up,170881,153.7929
+33,Cropland → Cropland,2242971,2018.6739
+41,Bare land → Built-up,20786,18.7074
+44,Bare land → Bare land,1916509,1724.8581
+55,Water → Water,104401,93.9609

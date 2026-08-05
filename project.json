@@ -1,0 +1,27 @@
+{
+  "project_title": "Urban Growth Prediction in Abuja Using a Quantity-Constrained CA\u2013Markov Model (2025\u20132035)",
+  "repository_name": "abuja-urban-growth-ca-markov",
+  "study_area": "Federal Capital Territory, Abuja, Nigeria",
+  "historical_years": [
+    2005,
+    2015,
+    2025
+  ],
+  "prediction_year": 2035,
+  "resolution_m": 30,
+  "crs": "EPSG:32632",
+  "model": "Quantity-constrained CA\u2013Markov with urban-suitability allocation",
+  "key_results": {
+    "built_up_2025_sqkm": 1167.8509076325397,
+    "built_up_2035_sqkm": 1351.2966732891698,
+    "built_up_net_change_sqkm": 183.4457656566301,
+    "built_up_percent_change": 15.707978172360225,
+    "allocation_fidelity_percent": 98.9622719352318,
+    "historical_validation_oa_percent": 49.266666666666666,
+    "historical_validation_kappa": 0.3658333333333333
+  },
+  "author": "Abdullah Abdazeez Ayomide",
+  "github": "https://github.com/Abdullahabdazeez",
+  "linkedin": "https://ng.linkedin.com/in/abdazeez-abdullah-4b814719a",
+  "email": "abdazeezabdullah1@gmail.com"
+}

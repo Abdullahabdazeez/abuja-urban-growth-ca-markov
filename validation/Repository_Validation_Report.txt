@@ -1,0 +1,2 @@
+REPOSITORY VALIDATION: PASSED
+Required files, metadata, statistics, raster CRS, resolution and upload-size limits are valid.

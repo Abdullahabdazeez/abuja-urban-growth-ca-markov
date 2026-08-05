@@ -1,0 +1,2 @@
+allocated_new_built_up_pixels,allocation_difference_pixels,base_year,built_up_area_2025_sqkm,built_up_area_2035_sqkm,built_up_net_change_sqkm,built_up_percentage_change,model,prediction_year,required_new_built_up_pixels,study_area,target_built_up_pixels_2035
+203889,2138.0,2025,1167.8509076325397,1351.2966732891698,183.4457656566301,15.707978172360225,Quantity-Constrained CA-Markov,2035,206027.0,"Federal Capital Territory, Abuja",1503884.0

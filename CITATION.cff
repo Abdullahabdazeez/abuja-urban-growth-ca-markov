@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite it using the metadata below."
+title: "Urban Growth Prediction in Abuja Using a Quantity-Constrained CA-Markov Model (2025–2035)"
+type: software
+authors:
+  - family-names: "Ayomide"
+    given-names: "Abdullah Abdazeez"
+date-released: 2026-08-05
+repository-code: "https://github.com/Abdullahabdazeez/abuja-urban-growth-ca-markov"
+license: MIT
+keywords:
+  - GIS
+  - remote sensing
+  - CA-Markov
+  - urban growth
+  - Abuja

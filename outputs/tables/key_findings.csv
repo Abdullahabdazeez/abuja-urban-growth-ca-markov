@@ -1,0 +1,11 @@
+indicator,value,unit
+"Built-up area, 2025",1167.8509076325397,km²
+"Predicted built-up area, 2035",1351.2966732891698,km²
+Predicted net built-up increase,183.4457656566301,km²
+Predicted built-up change,15.707978172360225,%
+Required new built-up pixels,206027.0,pixels
+Allocated new built-up pixels,203889.0,pixels
+Quantity-allocation fidelity,98.9622719352318,%
+Historical validation overall accuracy,49.266666666666666,%
+Historical validation Kappa,0.3658333333333333,coefficient
+Mean suitability of allocated expansion cells,0.8188525798674836,0–1

@@ -1,0 +1,2 @@
+kappa,model,overall_accuracy,overall_accuracy_percent,reference_year,validation_note,validation_period,validation_sample_count
+0.3658333333333333,CA-Markov Historical Validation,0.4926666666666666,49.266666666666666,2025,Historical CA-Markov simulation compared with observed 2025 LULC,2015-2025,1500

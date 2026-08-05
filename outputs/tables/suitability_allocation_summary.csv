@@ -1,0 +1,4 @@
+zone,cell_count,mean_suitability,median_suitability
+All finite suitability cells,6764036,0.6301387353491243,0.6399669226510704
+Allocated expansion cells,203897,0.8188525798674836,0.8092754296485116
+Non-expansion finite cells,6560139,0.6242732823829966,0.6380109334078219

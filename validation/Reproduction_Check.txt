@@ -1,0 +1,4 @@
+REPRODUCTION CHECK: PASSED
+Built-up area: 1167.85 km² (2025) -> 1351.30 km² (2035)
+Net built-up increase: 183.45 km²
+Historical validation: 49.27% OA; Kappa 0.366
