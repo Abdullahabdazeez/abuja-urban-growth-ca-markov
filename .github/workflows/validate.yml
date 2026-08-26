@@ -2,7 +2,7 @@ name: Validate repository
 
 on:
   push:
-    branches: [main]
+    branches: [main, "automation/**"]
   pull_request:
     branches: [main]
 
@@ -17,6 +17,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pandas numpy rasterio
+      - run: pip install pandas numpy rasterio pytest
 
-      - run: python validation/validate_repository.py
+      - name: Repository validation
+        run: python validation/validate_repository.py
+
+      - name: Reconstruction automation tests
+        run: pytest -q tests/test_reconstruction_pipeline.py
