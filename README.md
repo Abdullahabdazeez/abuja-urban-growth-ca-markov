@@ -1,69 +1,77 @@
-# Abuja Urban Growth CA–Markov — Reconstruction in Progress
+# Abuja Urban Growth CA–Markov Model — Reconstruction in Progress
 
-> **Scientific status: provisional / under reconstruction.**
->
-> The original 2025–2035 CA–Markov scenario remains public for provenance, but its historical LULC inputs and validation framework are currently being rebuilt. The existing 2035 scenario should **not** be treated as a final forecast or as the definitive project result until the reconstruction is complete.
+> **Current status:** the original 2035 scenario is kept here for transparency, but I am rebuilding the historical LULC and validation workflow. The existing 2035 map should be treated as **provisional**, not as a final forecast.
 
-## Why the project is being rebuilt
+## What this project is trying to answer
 
-A later scientific audit identified three problems in the original workflow:
+Can historical land-cover change in Abuja support a defensible simulation of where urban growth may occur by 2035?
 
-1. **Historical simulation agreement was weak.** The original hindcast produced **49.27% overall accuracy** and **0.366 Kappa** on 1,500 comparison points.
-2. **The 2015–2025 transition matrix contains physically questionable instability.** Built-up persistence was only about **0.648**, implying substantial Built-up → non-Built-up change. Cropland and Bare-land persistence were also weak. This is more consistent with classification instability than with reliable land-change dynamics at the reported scale.
-3. **Suitability discrimination needs stronger testing.** The original suitability surface clustered tightly around its central range, so the reconstruction will explicitly test whether it meaningfully separates observed expansion from non-expansion locations.
+The original project combined historical LULC maps, Markov transition probabilities, an urban-suitability surface and cellular allocation. A later audit showed that some of the historical inputs were not strong enough to support the confidence I wanted for the final scenario.
 
-Because the CA–Markov projection inherits errors from the historical LULC maps, the current priority is to **repair the input classifications first** before rebuilding the transition, suitability and allocation stages.
+Rather than hide that weakness, I kept the original work public and started rebuilding the model from the historical classifications upward.
 
-## Reconstruction plan
+## Why I am rebuilding it
 
-The project is being rebuilt in the following order:
+Three issues stood out during the audit.
 
-1. Freeze the original 2005, 2015, 2025 and 2035 outputs as baseline provenance.
-2. Audit class areas, persistence and all 2005→2015 and 2015→2025 transitions.
-3. Review Built-up reversions and other implausible transitions spatially.
-4. Reconstruct a stronger human-reviewed reference dataset.
-5. Rebuild the historical LULC classifications using a leakage-free validation design.
-6. Test temporal consistency before rebuilding Markov probabilities.
-7. Evaluate historical land-change simulation using **Figure of Merit**, **quantity disagreement** and **allocation disagreement**, with conventional accuracy statistics retained only as supplementary context where useful.
-8. Rebuild and test the suitability model against observed historical expansion.
-9. Validate an historical hindcast before producing any new 2035 scenario.
-10. Freeze the new results only after the complete validation sequence passes.
+First, the original historical hindcast achieved only **49.27% overall accuracy** and **0.366 Kappa** on 1,500 comparison points. That is too weak to treat the later scenario as a confident forecast.
+
+Second, the 2015–2025 transition matrix showed questionable instability. Built-up persistence was only about **0.648**, which implied an unusually large amount of Built-up → non-Built-up change. Cropland and Bare-land persistence were also weak. That pattern is more consistent with classification instability than with reliable land-change dynamics at the reported scale.
+
+Third, the original suitability surface was tightly clustered around its middle range. The rebuilt workflow therefore needs to test whether the suitability model can genuinely separate observed expansion from non-expansion locations.
 
 ## Original scenario retained for provenance
 
-The original workflow combined historical LULC maps, a 2015–2025 Markov transition matrix, an urban-expansion suitability surface and quantity-constrained cellular allocation.
-
-It produced the following **provisional historical scenario values**:
-
 | Indicator | Original value |
 |---|---:|
-| Built-up area, 2025 | 1,167.85 km² |
-| Simulated built-up area, 2035 | 1,351.30 km² |
-| Simulated net increase | 183.45 km² |
-| Simulated relative increase | 15.71% |
-| Historical hindcast OA | 49.27% |
-| Historical hindcast Kappa | 0.366 |
+| Built-up area, 2025 | **1,167.85 km²** |
+| Simulated built-up area, 2035 | **1,351.30 km²** |
+| Simulated net increase | **183.45 km²** |
+| Simulated relative increase | **15.71%** |
+| Historical hindcast OA | **49.27%** |
+| Historical hindcast Kappa | **0.366** |
 
-These values are preserved only so the reconstruction remains transparent and auditable. They are **not currently endorsed as final planning results**.
+I keep these numbers because they are part of the project's history. They are **not currently endorsed as final planning results**.
 
-## Current scientific position
+## Reconstruction plan
 
-The model should not be used for parcel-level development decisions, deterministic forecasting or definitive statements about Abuja's 2035 urban footprint while reconstruction is underway.
+1. Preserve the original 2005, 2015, 2025 and 2035 products as a baseline record.
+2. Audit class areas, persistence and the 2005→2015 and 2015→2025 transitions.
+3. Inspect Built-up reversions and other implausible transitions spatially.
+4. Rebuild a stronger human-reviewed reference dataset.
+5. Reclassify the historical LULC maps with leakage-free validation.
+6. Check temporal consistency before rebuilding the Markov probabilities.
+7. Validate historical change with **Figure of Merit, quantity disagreement and allocation disagreement**, while keeping conventional accuracy measures as supporting context.
+8. Test the suitability model against observed historical expansion.
+9. Run and validate a historical hindcast.
+10. Produce a new 2035 scenario only if the earlier stages pass.
 
-The final project will only publish a new 2035 scenario if the rebuilt historical classifications and hindcast validation provide defensible evidence that the transition and allocation logic are working as intended.
+## Why this matters
+
+A CA–Markov model can produce a convincing-looking future map even when the historical classifications feeding it are unstable. For planning, that is dangerous because the map may look more certain than the evidence really is.
+
+The reconstruction is therefore focused less on making the 2035 output look impressive and more on making sure the chain of evidence behind it is defensible.
+
+## Current use
+
+The repository is useful as a transparent record of the original workflow and the reconstruction process. The current 2035 scenario should **not** be used for parcel-level decisions, deterministic forecasting or definitive statements about Abuja's future urban footprint.
+
+A new scenario will only replace it after the rebuilt historical classifications, transition logic, suitability model and hindcast have passed the full validation sequence.
 
 ## Repository contents
 
-Historical maps, tables, scripts and outputs remain in the repository as provenance for the original workflow. During reconstruction, newer validated products will supersede these files in a controlled sequence rather than silently overwriting the scientific record.
+The repository keeps the original maps, tables, scripts and outputs for provenance while the reconstructed products are added in a controlled sequence. Superseded material is not silently rewritten as though it had always been final.
+
+## Tools
+
+Google Earth Engine · Python · GIS · Remote sensing · LULC change analysis · CA–Markov · Suitability modelling · Validation diagnostics
 
 ## Author
 
 **Abdullah Abdazeez Ayomide**  
-Geo-spatial Planner | GIS & Remote Sensing Analyst | Urban & Environmental Planning Researcher
+Geospatial Planner · GIS & Remote Sensing Analyst · Urban & Environmental Planning Researcher
 
-- [GitHub profile](https://github.com/Abdullahabdazeez)
-- [LinkedIn](https://ng.linkedin.com/in/abdazeez-abdullah-4b814719a)
-- [Email](mailto:abdazeezabdullah1@gmail.com)
+[GitHub](https://github.com/Abdullahabdazeez) · [LinkedIn](https://ng.linkedin.com/in/abdazeez-abdullah-4b814719a)
 
 ## Status
 
