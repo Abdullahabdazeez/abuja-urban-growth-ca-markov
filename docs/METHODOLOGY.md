@@ -1,27 +1,24 @@
 # Methodology
 
-## 1. Historical land-cover preparation
+The project uses a quantity-constrained CA-Markov framework to explore a 2035 urban-growth scenario for the Federal Capital Territory, Abuja.
 
-The cloud workflow prepared surface-reflectance composites for 2005, 2015 and 2025 using Landsat Collection 2 Level-2 imagery. QA_PIXEL and QA_RADSAT bands were used to remove cloud, shadow and saturated observations. The optical bands were scaled and renamed consistently across Landsat sensors.
+Historical land-cover transitions from 2015 to 2025 were used to estimate Markov transition probabilities. The model then calculated the required quantity of future built-up land. An urban-expansion suitability surface ranked candidate locations, and cellular allocation assigned new built-up cells until the modelled demand was approached.
 
-## 2. Spectral predictors
+The resulting products include a predicted 2035 LULC raster, built-up-expansion raster, transition raster, suitability surface and summary tables.
 
-The predictor stack combined blue, green, red, near-infrared, SWIR-1 and SWIR-2 bands with NDVI, NDBI, MNDWI, BSI and EVI.
+The scenario rasters use a 30 m grid in WGS 84 / UTM Zone 32N (EPSG:32632).
 
-## 3. Reference data and Random Forest classification
+## Historical validation
 
-Manual 2025 polygons supplied the five land-cover classes: built-up, vegetation, cropland, bare land and water. Balanced stratified samples were split 70/30 for training and validation. The historical script used 250-tree Random Forest models and a three-seed ensemble. Stable, homogeneous and spectrally consistent 2025 labels were transferred backward to construct reference labels for 2015, and the process was repeated from 2015 to 2005.
+The historical simulation was validated against observed 2025 LULC using **1,500 samples**.
 
-The transferred-label agreement values for historical years are consistency checks, not independent ground-truth accuracies.
+| Metric | Result |
+|---|---:|
+| Overall Accuracy | **49.27%** |
+| Cohen's Kappa | **0.366** |
 
-## 4. Markov transition probabilities
+These values limit forecast confidence. The 2035 output is therefore communicated as a **strategic planning scenario**, not a deterministic forecast.
 
-The 2015 and 2025 land-cover maps were cross-tabulated to estimate class-to-class transition probabilities. The matrix records persistence and conversion probabilities for all five classes.
+## Interpretation
 
-## 5. Quantity-constrained cellular allocation
-
-The Markov model estimated the 2035 class demand. Built-up growth required **206,027** new pixels. A suitability surface ranked available cells, and the allocation selected **203,889** pixels, equivalent to **98.96%** of the required quantity.
-
-## 6. Output generation
-
-The final outputs include predicted 2035 LULC, new built-up expansion, transition codes and the suitability surface. Local Python scripts clean the exported tables, derive the 2025 baseline from transition codes, regenerate the figures and validate internal consistency.
+The model is most useful for metropolitan-scale screening: identifying locations where future development pressure may justify earlier review of infrastructure, development control and environmental safeguards. Site-specific decisions require current plans, field evidence and updated spatial data.
