@@ -1,78 +1,47 @@
-# Abuja Urban Growth CA–Markov Model — Reconstruction in Progress
+# Predicting Urban Growth to Support Better Planning - Abuja, Nigeria
 
-> **Current status:** the original 2035 scenario is kept here for transparency, but I am rebuilding the historical LULC and validation workflow. The existing 2035 map should be treated as **provisional**, not as a final forecast.
+## Planning question
+**Where is Abuja most likely to expand next, and how can planners prepare for that growth?**
 
-## What this project is trying to answer
+Abuja continues to expand as new neighbourhoods, roads and commercial areas extend beyond the established urban core. This project combines historical land-cover transitions, an urban-suitability surface and a quantity-constrained CA-Markov model to explore a 2035 urban-growth scenario.
 
-Can historical land-cover change in Abuja support a defensible simulation of where urban growth may occur by 2035?
+## Key scenario results
+- Built-up area in 2025: **1,167.85 km²**
+- Built-up area in the 2035 scenario: **1,351.30 km²**
+- Net increase: **183.45 km²**
+- Relative increase: **15.71%**
+- Required new built-up pixels: **206,027**
+- Allocated new built-up pixels: **203,889**
 
-The original project combined historical LULC maps, Markov transition probabilities, an urban-suitability surface and cellular allocation. A later audit showed that some of the historical inputs were not strong enough to support the confidence I wanted for the final scenario.
+## Validation and uncertainty
+The historical simulation achieved **49.27% overall accuracy** and **Kappa 0.366** using **1,500 validation samples**.
 
-Rather than hide that weakness, I kept the original work public and started rebuilding the model from the historical classifications upward.
+This is an important limitation. The 2035 map should be interpreted as a **strategic planning scenario**, not a certain forecast. It is most useful for broad screening, discussion and identifying locations that may need closer review.
 
-## Why I am rebuilding it
+## Method
+1. Estimate 2015-2025 land-cover transition probabilities.
+2. Estimate the quantity of built-up growth required for 2035.
+3. Use an urban-suitability surface to rank potential development locations.
+4. Allocate future built-up cells under a quantity constraint.
+5. Produce predicted LULC, built-up-expansion and transition surfaces.
+6. Compare 2025 and 2035 land-cover areas.
+7. Report historical simulation validation and limitations.
 
-Three issues stood out during the audit.
+## Planning value
+The scenario can support early discussion about:
+- where transport and utility upgrades may be needed;
+- where schools, healthcare and drainage may face future pressure;
+- where development control should be strengthened; and
+- where cropland and other non-built land may face conversion pressure.
 
-First, the original historical hindcast achieved only **49.27% overall accuracy** and **0.366 Kappa** on 1,500 comparison points. That is too weak to treat the later scenario as a confident forecast.
-
-Second, the 2015–2025 transition matrix showed questionable instability. Built-up persistence was only about **0.648**, which implied an unusually large amount of Built-up → non-Built-up change. Cropland and Bare-land persistence were also weak. That pattern is more consistent with classification instability than with reliable land-change dynamics at the reported scale.
-
-Third, the original suitability surface was tightly clustered around its middle range. The rebuilt workflow therefore needs to test whether the suitability model can genuinely separate observed expansion from non-expansion locations.
-
-## Original scenario retained for provenance
-
-| Indicator | Original value |
-|---|---:|
-| Built-up area, 2025 | **1,167.85 km²** |
-| Simulated built-up area, 2035 | **1,351.30 km²** |
-| Simulated net increase | **183.45 km²** |
-| Simulated relative increase | **15.71%** |
-| Historical hindcast OA | **49.27%** |
-| Historical hindcast Kappa | **0.366** |
-
-I keep these numbers because they are part of the project's history. They are **not currently endorsed as final planning results**.
-
-## Reconstruction plan
-
-1. Preserve the original 2005, 2015, 2025 and 2035 products as a baseline record.
-2. Audit class areas, persistence and the 2005→2015 and 2015→2025 transitions.
-3. Inspect Built-up reversions and other implausible transitions spatially.
-4. Rebuild a stronger human-reviewed reference dataset.
-5. Reclassify the historical LULC maps with leakage-free validation.
-6. Check temporal consistency before rebuilding the Markov probabilities.
-7. Validate historical change with **Figure of Merit, quantity disagreement and allocation disagreement**, while keeping conventional accuracy measures as supporting context.
-8. Test the suitability model against observed historical expansion.
-9. Run and validate a historical hindcast.
-10. Produce a new 2035 scenario only if the earlier stages pass.
-
-## Why this matters
-
-A CA–Markov model can produce a convincing-looking future map even when the historical classifications feeding it are unstable. For planning, that is dangerous because the map may look more certain than the evidence really is.
-
-The reconstruction is therefore focused less on making the 2035 output look impressive and more on making sure the chain of evidence behind it is defensible.
-
-## Current use
-
-The repository is useful as a transparent record of the original workflow and the reconstruction process. The current 2035 scenario should **not** be used for parcel-level decisions, deterministic forecasting or definitive statements about Abuja's future urban footprint.
-
-A new scenario will only replace it after the rebuilt historical classifications, transition logic, suitability model and hindcast have passed the full validation sequence.
-
-## Repository contents
-
-The repository keeps the original maps, tables, scripts and outputs for provenance while the reconstructed products are added in a controlled sequence. Superseded material is not silently rewritten as though it had always been final.
+The scenario should be reviewed alongside current plans, field evidence, population trends and updated imagery before site-specific decisions.
 
 ## Tools
-
-Google Earth Engine · Python · GIS · Remote sensing · LULC change analysis · CA–Markov · Suitability modelling · Validation diagnostics
+Google Earth Engine · GIS · Remote Sensing · CA-Markov · Suitability Modelling · Spatial Analysis
 
 ## Author
-
 **Abdullah Abdazeez Ayomide**  
-Geospatial Planner · GIS & Remote Sensing Analyst · Urban & Environmental Planning Researcher
+Urban & Regional Planner · GIS & Remote Sensing · Spatial Decision Support
 
-[GitHub](https://github.com/Abdullahabdazeez) · [LinkedIn](https://ng.linkedin.com/in/abdazeez-abdullah-4b814719a)
-
-## Status
-
-**Reconstruction in progress — original CA–Markov scenario retained for provenance only.**
+## Citation
+Abdullah Abdazeez Ayomide (2026). *Predicting Urban Growth to Support Better Planning - Abuja, Nigeria*.
