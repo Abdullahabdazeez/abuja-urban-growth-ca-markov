@@ -1,9 +1,11 @@
 # Limitations
 
-- Historical labels for 2015 and 2005 were transferred from later classifications using spectral stability and homogeneity rules rather than independent historical ground truth.
-- The historical simulation achieved only moderate agreement with observed 2025 LULC. Spatial allocation errors may therefore persist in the 2035 scenario.
-- CA–Markov assumes that transition behaviour observed in the calibration period remains informative for the future.
-- The model does not explicitly represent future policy changes, major infrastructure programmes, land-market shocks, conflict or economic restructuring.
-- The suitability surface ranks relative spatial preference; it is not a legal development-suitability assessment.
-- The original Earth Engine assets and manual reference polygons were not included in the final uploaded archive, limiting complete cloud reruns from this repository alone.
-- The outputs are suitable for strategic and metropolitan-scale assessment, not parcel-level approval or compulsory acquisition decisions.
+- Historical validation achieved **49.27% Overall Accuracy** and **Kappa 0.366**.
+- The 2035 output is a modelled strategic scenario, not a deterministic forecast.
+- Future urban growth is affected by policy, infrastructure investment, land markets, demographic change and other factors that may not be fully represented by historical land-cover transitions.
+- The suitability surface and transition probabilities should be updated as newer evidence becomes available.
+- The output is not suitable for parcel-level decisions without additional local evidence.
+
+## Appropriate use
+
+Use the scenario for metropolitan-scale screening, early discussion and identifying locations that deserve closer investigation. Review it alongside current local plans, field knowledge, population trends and updated imagery before making site-specific planning decisions.
